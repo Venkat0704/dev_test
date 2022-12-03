@@ -18,11 +18,11 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 @Test
 public class BaseClass
 {
-	public static WebDriver driver;
+	public static WebDriver drier;
 	public static SoftAssert softAssert;
     public Properties prop;
 	public String configurFileepath="D:\\SeleniumWorkspace\\AutomationPraticeApp\\src\\main\\java\\com\\AutomationPraticeAppQA\\config\\config.properties";
-   
+   driver.manage();
 	public BaseClass()  
 	{
 		try
@@ -34,7 +34,7 @@ public class BaseClass
 	        prop = new Properties();
 			prop.load(fis);
 		}
-		catch(FileNotFoundException  fne)
+		catch(FileNotFound  fne)
 		{
 			fne.printStackTrace();
 		}
@@ -45,8 +45,7 @@ public class BaseClass
 	}	
  public void  intalize() 
   {
-		WebDriverManager.chromedriver().setup();
-		driver =  new ChromeDriver();
+		driver =  new FireFoxDriver();
 	
 	     driver.manage().window().maximize();
 	     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
